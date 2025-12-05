@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ConversationState, SynthesisResult } from '../types';
-import { RefreshCw, Save, AlertCircle, User, MessageSquare, Trophy } from 'lucide-react';
+import { RefreshCw, Save, AlertCircle, User, MessageSquare } from 'lucide-react';
 import { CopyButton } from './CopyButton';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
