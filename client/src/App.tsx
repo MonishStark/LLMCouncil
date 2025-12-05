@@ -31,7 +31,29 @@ function App() {
 
   const fetchConversations = async () => {
     try {
-      const res = await fetch('http://localhost:8000/api/conversations');
+[
+  {
+    "StartLine": 36,
+    "EndLine": 36,
+    "TargetContent": "      const res = await fetch('http://localhost:8000/api/conversations');",
+    "ReplacementContent": "      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';\n      const res = await fetch(`${API_URL}/api/conversations`);",
+    "AllowMultiple": false
+  },
+  {
+    "StartLine": 48,
+    "EndLine": 48,
+    "TargetContent": "      const res = await fetch(`http://localhost:8000/api/conversations/${saved.id}`);",
+    "ReplacementContent": "      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';\n      const res = await fetch(`${API_URL}/api/conversations/${saved.id}`);",
+    "AllowMultiple": false
+  },
+  {
+    "StartLine": 90,
+    "EndLine": 90,
+    "TargetContent": "      const res = await fetch(`http://localhost:8000/api/conversations/${id}`, {",
+    "ReplacementContent": "      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';\n      const res = await fetch(`${API_URL}/api/conversations/${id}`, {",
+    "AllowMultiple": false
+  }
+]
       if (res.ok) {
         const data = await res.json();
         setSavedConversations(data);
