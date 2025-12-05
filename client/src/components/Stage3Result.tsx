@@ -29,22 +29,8 @@ export const Stage3Result: React.FC<Stage3ResultProps> = ({ state, setState, onR
     setLoading(true);
     setError(null);
     try {
-[
-  {
-    "StartLine": 32,
-    "EndLine": 32,
-    "TargetContent": "      const response = await fetch('http://localhost:8000/api/synthesize', {",
-    "ReplacementContent": "      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';\n      const response = await fetch(`${API_URL}/api/synthesize`, {",
-    "AllowMultiple": false
-  },
-  {
-    "StartLine": 65,
-    "EndLine": 65,
-    "TargetContent": "      const response = await fetch('http://localhost:8000/api/conversations', {",
-    "ReplacementContent": "      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';\n      const response = await fetch(`${API_URL}/api/conversations`, {",
-    "AllowMultiple": false
-  }
-]
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${API_URL}/api/synthesize`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -82,7 +68,8 @@ export const Stage3Result: React.FC<Stage3ResultProps> = ({ state, setState, onR
 
   const saveConversation = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/conversations', {
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${API_URL}/api/conversations`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
